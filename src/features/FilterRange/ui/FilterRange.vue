@@ -9,7 +9,6 @@ const rangeValue = defineModel<[number, number]>("rangeValue");
 const marks = ref<Record<number, any>>();
 onMounted(() => {
   marks.value = getMarks();
-  console.log(marks.value);
 });
 
 const getMarks = () => {
@@ -52,8 +51,8 @@ const formatter = (value: number) => {
 </script>
 
 <template>
-  <div class="filter-range">
-    <div class="filter-range__title title">{{ title }}</div>
+  <div class="filter">
+    <div class="filter__title title">{{ title }}</div>
     <a-slider
       v-model:value="rangeValue"
       range
@@ -65,8 +64,8 @@ const formatter = (value: number) => {
   </div>
 </template>
 
-<style lang="scss" setup>
-.filter-range {
+<style lang="scss" scoped>
+.filter {
   display: flex;
   flex-direction: column;
   gap: 20px;

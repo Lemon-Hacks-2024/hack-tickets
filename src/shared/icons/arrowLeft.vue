@@ -15,3 +15,9 @@
     />
   </svg>
 </template>
+
+<style scoped>
+.white path {
+  stroke: #fff;
+}
+</style>

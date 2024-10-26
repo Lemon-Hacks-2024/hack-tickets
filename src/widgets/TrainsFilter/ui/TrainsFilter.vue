@@ -4,6 +4,14 @@ import FiltersBlock from "@/widgets/FiltersBlock";
 </script>
 
 <template>
-  <FiltersTitle :count="2" />
-  <FiltersBlock />
+  <div class="trains-filter">
+    <FiltersTitle :count="2" />
+    <FiltersBlock />
+  </div>
 </template>
+
+<style lang="scss" scoped>
+.trains-filter {
+  padding-bottom: 40px;
+}
+</style>

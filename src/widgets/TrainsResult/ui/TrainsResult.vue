@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import TrainsFilter from "@/widgets/TrainsFilter/ui/TrainsFilter.vue";
+import TrainsFilter from "@/widgets/TrainsFilter";
+import CardTrain from "@/entities/CardTrain";
 </script>
 
 <template>
@@ -7,12 +8,31 @@ import TrainsFilter from "@/widgets/TrainsFilter/ui/TrainsFilter.vue";
     <a-layout-sider class="layout-bg" width="250">
       <TrainsFilter />
     </a-layout-sider>
-    <a-layout-content class="layout-bg"> content </a-layout-content>
+    <a-layout-content class="layout-bg layout-content">
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+      <CardTrain />
+    </a-layout-content>
   </a-layout>
 </template>
 
 <style scoped>
 .layout-bg {
   background-color: transparent;
+}
+.layout-content {
+  padding-left: 40px;
 }
 </style>

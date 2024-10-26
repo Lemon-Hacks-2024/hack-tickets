@@ -7,7 +7,10 @@ export const rules: Record<string, Rule[]> = {
   cityTo: [
     { required: true, message: "Это поле обязательное", trigger: "change" },
   ],
-  dates: [
+  dateFrom: [
+    { required: true, message: "Это поле обязательное", trigger: "change" },
+  ],
+  dateTo: [
     { required: true, message: "Это поле обязательное", trigger: "change" },
   ],
 };
