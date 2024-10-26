@@ -9,4 +9,10 @@ export const routes = [
     name: "trains",
     component: () => import("@/pages/TrainsPage.vue"),
   },
+  ,
+  {
+    path: "/profile",
+    name: "profile",
+    component: () => import("@/pages/ProfilePage.vue"),
+  },
 ];
