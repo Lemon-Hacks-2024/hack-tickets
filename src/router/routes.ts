@@ -9,4 +9,9 @@ export const routes = [
     name: "trains",
     component: () => import("@/pages/TrainsPage.vue"),
   },
+  {
+    path: "/booking/:trainId",
+    name: "booking",
+    component: () => import("@/pages/BookingPage.vue"),
+  },
 ];

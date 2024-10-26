@@ -6,7 +6,7 @@ import CountPlaces from "@/entities/CountPlaces";
 </script>
 
 <template>
-  <div class="card-train">
+  <router-link :to="`/booking/1`" class="card-train">
     <div class="card-train__head">
       <route />
       <div class="card-train__city">Ростов-на-Дону</div>
@@ -29,7 +29,7 @@ import CountPlaces from "@/entities/CountPlaces";
         <CountPlaces type="Купе" :count="0" />
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style lang="scss" scoped>
@@ -38,6 +38,14 @@ import CountPlaces from "@/entities/CountPlaces";
   padding: 20px 30px;
   border-radius: 15px;
   margin-bottom: 30px;
+  cursor: pointer;
+  display: block;
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+  }
 
   &__head {
     display: flex;
