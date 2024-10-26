@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ReservedScheme from "@/entities/WagonsTemplate/ui/ReservedScheme.vue";
+import CompartmentScheme from "@/entities/WagonsTemplate/ui/CompartmentScheme.vue";
 import { testData } from "../model/testData";
 import { useBookingStore } from "@/store/bookingStore";
 import { onMounted, ref } from "vue";
@@ -16,6 +17,10 @@ onMounted(() => {
   <div class="scheme-wagon">
     <ReservedScheme
       v-if="bookingStore.typeWagon == 'reserved'"
+      v-model:placesData="placesData"
+    />
+    <CompartmentScheme
+      v-if="bookingStore.typeWagon == 'compartment'"
       v-model:placesData="placesData"
     />
   </div>
