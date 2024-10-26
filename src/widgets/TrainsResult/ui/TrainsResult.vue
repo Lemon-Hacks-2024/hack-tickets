@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import TrainsFilter from "@/widgets/TrainsFilter";
 import CardTrain from "@/entities/CardTrain";
+import SortBlock from "@/features/SortBlock";
 </script>
 
 <template>
@@ -9,6 +10,8 @@ import CardTrain from "@/entities/CardTrain";
       <TrainsFilter />
     </a-layout-sider>
     <a-layout-content class="layout-bg layout-content">
+      <SortBlock />
+
       <CardTrain />
       <CardTrain />
       <CardTrain />

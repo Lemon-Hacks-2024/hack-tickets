@@ -48,7 +48,7 @@ const onFinish = (values: any) => {
   const res = {
     ...values,
     dateFrom: values.dateFrom.format("YYYY-MM-DD"),
-    dateTo: values.dateTo.format("YYYY-MM-DD"),
+    dateTo: values.dateTo?.format("YYYY-MM-DD") || null,
   };
   console.log(res);
 
