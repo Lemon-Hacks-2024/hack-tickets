@@ -1,20 +1,30 @@
 <script setup lang="ts">
 import user_circle from '@/shared/img/user-circle.svg'
-
+import { MenuItem } from '@/entities/MenuItem';
+import { ref } from 'vue';
 interface Props {
-    mail: string
+    mail: string,
+    bio: string,
 }
 
 defineProps<Props>()
+
+const selectedItem = ref(0)
 </script>
 
 <template>
     <div class=" flex-center navigation">
         <div class="flex-center ">
             <img :src="user_circle" alt="">
-            <p class="email">{{ mail }}</p>
+            <div class="">
+                <p class="email">{{ bio }}</p>
+                <p class="email">{{ mail }}</p>
+            </div>
+
         </div>
-        <a-divider/>
+        <a-divider class="divider"/>
+        <MenuItem v-model="selectedItem"/>
+
     </div>
 </template>
 
@@ -23,13 +33,16 @@ defineProps<Props>()
         background-color: var(--dark-color-2);
         border-radius: 20px;
         width: 30vw;
-        height: calc(100vh - 120px);
+        // height: calc(100vh - 120px);
+        max-height: 600px;
+        min-height: 510px;
         padding-top: 60px;
 
     }
     .email {
             font-size: 20px;
             color: #fff;
+            margin-bottom: 5px;
         }
 
     .flex-center {
@@ -37,5 +50,11 @@ defineProps<Props>()
         flex-direction: column; 
         align-items: center;
         gap: 10px
+    }
+
+    .divider {
+        background-color: var(--light-gray-color);
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 </style>
