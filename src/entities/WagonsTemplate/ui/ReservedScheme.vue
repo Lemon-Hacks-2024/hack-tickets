@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { BookingStatus } from "@/widgets/SchemeWagon/model/BookingStatus";
 import { WagonData } from "@/widgets/SchemeWagon/model/WagonData";
 import ReservedTemplate from "../templates/ReservedTemplate.vue";
 
@@ -7,14 +8,40 @@ import { reservedTextSeats } from "../model/reservedTextSeats";
 
 const placesData = defineModel<WagonData[]>("placesData");
 
-const isHasSeat = (seatNum: number) => {
+const getSeatData = (seatNum: number) => {
   if (!placesData.value) return;
 
-  const seatData = placesData.value.find((item) => item.seatNum == seatNum);
+  return placesData.value.find((item) => item.seatNum == seatNum);
+};
+
+const isFreeSeat = (seatNum: number) => {
+  const seatData = getSeatData(seatNum);
 
   if (!seatData) return;
 
   return seatData.bookingStatus == "FREE";
+};
+
+const isSelectedSeat = (seatNum: number) => {
+  const seatData = getSeatData(seatNum);
+
+  if (!seatData) return;
+
+  return seatData.bookingStatus == "SELECTED";
+};
+
+const changeSeat = (seatNum: number) => {
+  const seatData = getSeatData(seatNum);
+  if (!seatData) return;
+
+  switch (seatData.bookingStatus) {
+    case "FREE":
+      seatData.bookingStatus = BookingStatus.SELECTED;
+      break;
+    case "SELECTED":
+      seatData.bookingStatus = BookingStatus.FREE;
+      break;
+  }
 };
 </script>
 
@@ -26,8 +53,14 @@ const isHasSeat = (seatNum: number) => {
         :key="i"
         :d="item"
         class="seat"
-        :class="{ shadow: i % 2 == 1, 'seat-free': isHasSeat(i + 1) }"
-      ></path>
+        :class="{
+          shadow: i % 2 == 1,
+          'seat-free': isFreeSeat(i + 1),
+          'seat-selected': isSelectedSeat(i + 1),
+        }"
+        @click="changeSeat(i + 1)"
+      >
+      </path>
     </template>
     <template #numbers>
       <text
@@ -35,6 +68,7 @@ const isHasSeat = (seatNum: number) => {
         :key="i"
         :transform="item"
         class="seat-text"
+        :class="{ 'seat-text-selected': isSelectedSeat(i + 1) }"
       >
         {{ i + 1 }}
       </text>
@@ -54,14 +88,29 @@ const isHasSeat = (seatNum: number) => {
 }
 .seat-free {
   fill: var(--freePlace);
-  cursor: pointer;
 
   &:hover {
-    fill: var(--hoverPlace);
+    fill: var(--hoverFreePlace);
   }
 }
+.seat-selected {
+  fill: var(--selectedPlace);
+
+  &:hover {
+    fill: var(--hoverSelectedPlace);
+  }
+}
+.seat-free,
+.seat-selected {
+  cursor: pointer;
+}
 .seat-text {
-  color: #000;
+  fill: #000;
+  transition: 0.2s;
   font-size: 20px;
+
+  &-selected {
+    fill: #fff;
+  }
 }
 </style>
