@@ -30,4 +30,9 @@ export const routes = [
     name: "add_pessanger",
     component: () => import("@/pages/AddPessanger.vue"),
   },
+  {
+    path: "/order",
+    name: "order",
+    component: () => import("@/pages/OrderPage.vue"),
+  },
 ];

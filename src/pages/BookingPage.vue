@@ -34,8 +34,6 @@ const stepTitle = computed(() => {
     case 1:
       return "Выберите места";
     case 2:
-      return "Укажите данные пассажиров";
-    case 3:
       return "Заказ готов к оплате";
   }
   return "";
@@ -53,13 +51,7 @@ const onBack = () => {
       <Transition>
         <AppLoader v-if="isLoad" />
         <div v-else>
-          <StepsCard
-            :count-steps="4"
-            :step="step"
-            :train-info="trainInfo"
-            class="booking__steps"
-            @prev="onBack"
-          >
+          <StepsCard :count-steps="3" :step="step" :train-info="trainInfo" class="booking__steps" @prev="onBack">
             {{ stepTitle }}
           </StepsCard>
 
