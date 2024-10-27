@@ -4,11 +4,13 @@ import { reactive, ref } from "vue";
 import AppBtn from "@/shared/ui/AppBtn.vue";
 import type { Rule } from "ant-design-vue/es/form";
 
+import { register } from "@/api/register";
+
 const rules: Record<string, Rule[]> = {
-  name: [
+  first_name: [
     { required: true, message: "Это поле обязательное", trigger: "change" },
   ],
-  lastname: [
+  last_name: [
     { required: true, message: "Это поле обязательное", trigger: "change" },
   ],
   email: [
@@ -22,21 +24,27 @@ const rules: Record<string, Rule[]> = {
 };
 
 interface RegisterType {
-  name: "";
-  lastname: "";
+  first_name: "";
+  last_name: "";
   email: "";
   password: "";
 }
 
 const formData = reactive<RegisterType>({
-  name: "",
-  lastname: "",
+  first_name: "",
+  last_name: "",
   email: "",
   password: "",
 });
 
 const sendForm = () => {
   console.log(formData);
+
+  const res = await register(formData);
+  if (res) {
+    message();
+  } else {
+  }
 };
 </script>
 
@@ -55,16 +63,16 @@ const sendForm = () => {
 
       <div class="information-container">
         <div class="fields-container">
-          <a-form-item name="name">
+          <a-form-item name="first_name">
             <a-input
-              v-model:value="formData.name"
+              v-model:value="formData.first_name"
               placeholder="Имя"
               size="large"
             />
           </a-form-item>
-          <a-form-item name="lastname">
+          <a-form-item name="last_name">
             <a-input
-              v-model:value="formData.lastname"
+              v-model:value="formData.last_name"
               placeholder="Фамилия"
               size="large"
           /></a-form-item>

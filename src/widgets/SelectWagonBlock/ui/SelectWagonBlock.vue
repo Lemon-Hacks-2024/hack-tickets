@@ -13,6 +13,8 @@ import { legendData } from "../model/legendData";
 // const countSelectedSeat = computed(() => {
 //   bookingStore.
 // });
+
+const emit = defineEmits(["next"]);
 </script>
 
 <template>
@@ -32,7 +34,7 @@ import { legendData } from "../model/legendData";
         <p>Вы выбрали <span>3</span> места на сумму <span>23 333 руб.</span></p>
       </div>
       <div class="wagon__btn">
-        <AppBtn>Продолжить</AppBtn>
+        <AppBtn @click="emit('next')">Продолжить</AppBtn>
       </div>
     </div>
   </div>
