@@ -12,7 +12,7 @@ const { number, freePlaces, active } = defineProps<Props>();
     </div>
     <div class="wagon-item__desc">
       {{ freePlaces }}
-      {{ getPluralWord(freePlaces, ["мето", "места", "мест"]) }}
+      {{ getPluralWord(freePlaces, ["меcто", "места", "мест"]) }}
     </div>
   </div>
 </template>
