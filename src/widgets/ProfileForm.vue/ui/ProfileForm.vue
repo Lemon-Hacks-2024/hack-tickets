@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NavigationProfile } from "@/features/NavigationProfile";
 import { InfoProfile } from "@/features/InfoProfile";
-import AppBtn from "@/shared/ui/AppBtn.vue";
+// import AppBtn from "@/shared/ui/AppBtn.vue";
 
 import { useUserStore } from "@/store/userStore";
 

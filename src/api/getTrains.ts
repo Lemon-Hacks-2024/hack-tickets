@@ -1,6 +1,11 @@
 import { api } from ".";
 
-export const getTrains = (startPoint: string, endPoint: string, startDate: string, endDate: string) => {
+export const getTrains = (
+  startPoint: string,
+  endPoint: string,
+  startDate: string,
+  endDate: string
+) => {
   return new Promise((resolve, reject) => {
     api
       .get(`trains`, {
@@ -9,8 +14,8 @@ export const getTrains = (startPoint: string, endPoint: string, startDate: strin
           start_point: startPoint,
           end_point: endPoint,
           start_date_departure: startDate,
-          end_date_departure: endDate
-        }
+          end_date_departure: endDate,
+        },
       })
       .then(({ data }) => {
         if (data.message === "OK" && data.details) {

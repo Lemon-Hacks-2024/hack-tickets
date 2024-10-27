@@ -1,8 +1,16 @@
 <script lang="ts" setup>
 import AuthLayout from "@/shared/layouts/AuthLayout.vue";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import AppBtn from "@/shared/ui/AppBtn.vue";
 import type { Rule } from "ant-design-vue/es/form";
+import { message } from "ant-design-vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/store/userStore";
+import { login } from "@/api/login";
+import { getProfile } from "@/api/getProfile";
+
+const router = useRouter();
+const { userData } = useUserStore();
 
 const rules: Record<string, Rule[]> = {
   name: [
@@ -21,18 +29,34 @@ const rules: Record<string, Rule[]> = {
   ],
 };
 
-interface RegisterType {
+interface LoginType {
   email: "";
   password: "";
 }
 
-const formData = reactive<RegisterType>({
+const formData = reactive<LoginType>({
   email: "",
   password: "",
 });
 
-const sendForm = () => {
+const sendForm = async () => {
   console.log(formData);
+
+  const res = await login(formData);
+  if (res) {
+    message.success("Вы успешно вошли");
+    router.push("/");
+
+    getProfile().then((res: any) => {
+      console.log(res);
+      userData.first_name = res.first_name;
+      userData.last_name = res.last_name;
+      userData.email = res.email;
+      userData.isLogin = true;
+    });
+  } else {
+    message.error("Возникла ошибка");
+  }
 };
 </script>
 

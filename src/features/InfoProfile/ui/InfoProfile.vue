@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import man from "@/shared/icons/manIcon.vue";
-import woman from "@/shared/icons/womanIcon.vue";
+// import man from "@/shared/icons/manIcon.vue";
+// import woman from "@/shared/icons/womanIcon.vue";
 import { onMounted, reactive } from "vue";
 import type { UnwrapRef } from "vue";
 
