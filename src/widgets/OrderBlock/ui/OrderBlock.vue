@@ -33,4 +33,8 @@ import { getProfile } from '@/api/getProfile';
 :deep(.ant-result-subtitle) {
     color: #fff;
 }
+
+:deep(.anticon-check-circle svg) {
+    fill: var(--main-color);
+}
 </style>
