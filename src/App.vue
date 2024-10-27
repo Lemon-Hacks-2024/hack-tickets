@@ -4,14 +4,7 @@ import AppHeader from "@/widgets/AppHeader";
 import ruRU from "ant-design-vue/es/locale/ru_RU";
 import dayjs from "dayjs";
 import "dayjs/locale/ru";
-import { useRouter } from "vue-router";
 dayjs.locale("ru");
-
-const route = useRouter();
-
-function goToOrderPage() {
-  route.push('/order');
-}
 
 const theme = {
   token: {
@@ -27,7 +20,6 @@ const theme = {
     <a-app>
       <div class="main">
         <AppHeader />
-        <button @click="goToOrderPage()">Go to OrderPage</button>
         <router-view v-slot="{ Component, route }">
           <Transition appear>
             <div :key="route.name">

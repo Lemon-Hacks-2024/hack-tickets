@@ -41,9 +41,4 @@ export const routes: any[] = [
     name: "register",
     component: () => import("@/pages/RegisterPage.vue"),
   },
-  {
-    path: "/order",
-    name: "order",
-    component: () => import("@/pages/OrderPage.vue"),
-  }
 ];
