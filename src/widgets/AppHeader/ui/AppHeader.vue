@@ -6,7 +6,7 @@ import AppBtn from "@/shared/ui/AppBtn.vue";
 import { useUserStore } from "@/store/userStore";
 import { UserOutlined } from "@ant-design/icons-vue";
 
-const { isAuth } = useUserStore();
+const { userData } = useUserStore();
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const { isAuth } = useUserStore();
           </a-tooltip>
 
           <a-divider type="vertical" class="divider" />
-          <router-link v-if="!isAuth()" to="/login">
+          <router-link v-if="!userData.isLogin" to="/login">
             <AppBtn class="text white">
               Вход
               <exit />

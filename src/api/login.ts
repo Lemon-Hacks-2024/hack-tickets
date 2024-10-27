@@ -1,8 +1,8 @@
 import { api } from ".";
 
 interface LoginType {
-  email: "",
-  password: ""
+  email: "";
+  password: "";
 }
 
 export const login = async (data: LoginType) => {
@@ -12,7 +12,7 @@ export const login = async (data: LoginType) => {
     const token = request.data.details.Token;
 
     localStorage.token = token;
-    api.defaults.headers["Authorization"] = token;
+    api.defaults.headers["Authorization"] = `Bearer ${token}`;
 
     return true;
   } catch (error) {
