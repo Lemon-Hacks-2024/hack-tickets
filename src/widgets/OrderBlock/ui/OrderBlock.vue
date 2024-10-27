@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppBtn from '@/shared/ui/AppBtn.vue';
+import { getProfile } from '@/api/getProfile';
 
 </script>
 
@@ -9,7 +10,7 @@ import AppBtn from '@/shared/ui/AppBtn.vue';
         <a-result status="success" title="Билеты успешны забронированы!"
             sub-title="Бронь действует в течение следующих 20 минут. Вам будет необходимо оплатить ее, иначе бронь будет отменена.">
             <template #extra>
-                <AppBtn>На главную</AppBtn>
+                <AppBtn @click="getProfile()">На главную</AppBtn>
             </template>
         </a-result>
     </div>
