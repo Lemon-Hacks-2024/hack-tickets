@@ -7,7 +7,7 @@ import mageFilter from "@/shared/icons/mageFilter.vue";
 const { count } = defineProps<Props>();
 
 const flightWord = computed<string>(() => {
-  return getPluralWord(count, ["Рейс", "Рейса", "Рейов"]);
+  return getPluralWord(count, ["Рейс", "Рейса", "Рейсов"]);
 });
 </script>
 

@@ -20,4 +20,14 @@ export const routes = [
     name: "booking",
     component: () => import("@/pages/BookingPage.vue"),
   },
+  {
+    path: "/auto_booking",
+    name: "auto_booking",
+    component: () => import("@/pages/AutoBookingPage.vue"),
+  },
+  {
+    path: "/add_pessanger",
+    name: "add_pessanger",
+    component: () => import("@/pages/AddPessanger.vue"),
+  },
 ];

@@ -18,7 +18,7 @@ const theme = {
 <template>
   <a-config-provider :theme="theme" :locale="ruRU">
     <a-app>
-      <div class="main custom-theme">
+      <div class="main">
         <AppHeader />
 
         <router-view v-slot="{ Component, route }">
