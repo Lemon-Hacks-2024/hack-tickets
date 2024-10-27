@@ -138,7 +138,6 @@ const formState: UnwrapRef<FormState> = reactive({
                     <a-input v-model:value="formState.mail" placeholder="Электронная почта *" />
                 </a-form-item>
             </a-flex>
-
         </div>
     </div>
 </template>
@@ -252,10 +251,12 @@ const formState: UnwrapRef<FormState> = reactive({
 }
 
 .gender-toggle {
+    margin-top: 30px;
+    margin-left: 20px;
+    height: 54px;
     display: flex;
-    border-radius: 8px;
+    border-radius: 5px;
     overflow: hidden;
-    font-family: Arial, sans-serif;
 }
 
 .gender-toggle input[type="radio"] {
@@ -293,6 +294,12 @@ const formState: UnwrapRef<FormState> = reactive({
 .gender-toggle input[type="radio"]:not(:checked)+label {
     background-color: var(--gray-color);
     color: white;
+}
+
+
+.gender-toggle .icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 .gender-toggle .icon svg {

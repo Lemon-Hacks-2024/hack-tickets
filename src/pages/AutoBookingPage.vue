@@ -12,5 +12,4 @@ import dayjs from "dayjs";
 import "dayjs/locale/ru";
 dayjs.locale("ru");
 
-// Здесь можно добавить логику для страницы бронирования
 </script>
