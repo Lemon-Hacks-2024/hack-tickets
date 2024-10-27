@@ -1,7 +1,9 @@
 <template>
   <div class="background-container">
     <div class="logo">
-      <img src="@/shared/img/logo/1-light.png" alt="Лого Лимон" />
+      <router-link to="/">
+        <img src="@/shared/img/logo/1-light.png" alt="Лого Лимон" />
+      </router-link>
     </div>
 
     <div class="auth-form-container">

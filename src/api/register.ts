@@ -14,7 +14,7 @@ export const register = async (data: RegisterType) => {
     const token = request.data.details.Token;
 
     localStorage.token = token;
-    api.defaults.headers["Authorization"] = token;
+    api.defaults.headers["Authorization"] = `Bearer ${token}`;
 
     return true;
   } catch (error) {

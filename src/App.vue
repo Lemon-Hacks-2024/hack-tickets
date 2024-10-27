@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import AppHeader from "@/widgets/AppHeader";
+import { getProfile } from "@/api/getProfile";
 
 import ruRU from "ant-design-vue/es/locale/ru_RU";
 import dayjs from "dayjs";
 import "dayjs/locale/ru";
+import { onMounted } from "vue";
 dayjs.locale("ru");
 
 const theme = {
@@ -13,6 +15,12 @@ const theme = {
     colorPrimaryHover: "#c4cf03",
   },
 };
+
+onMounted(() => {
+  getProfile().then((res) => {
+    console.log(res);
+  });
+});
 </script>
 
 <template>

@@ -53,6 +53,7 @@ const sendForm = async () => {
     userData.first_name = formData.first_name;
     userData.last_name = formData.last_name;
     userData.email = formData.email;
+    userData.isLogin = true;
   } else {
     message.error("Возникла ошибка");
   }
