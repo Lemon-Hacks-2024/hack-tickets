@@ -10,6 +10,7 @@ import AppBtn from "@/shared/ui/AppBtn.vue";
 import dayjs, { Dayjs } from "dayjs";
 import { useTrainsStore } from "@/store/trainsStore";
 
+
 const emit = defineEmits(["sendForm"]);
 
 const trainsStore = useTrainsStore();
@@ -72,57 +73,31 @@ onMounted(() => {
 </script>
 
 <template>
-  <a-form
-    class="form"
-    layout="inline"
-    :model="formData"
-    :rules="rules"
-    @finish="onFinish"
-    @finishFailed="onFinishFailed"
-  >
+  <a-form class="form" layout="inline" :model="formData" :rules="rules" @finish="onFinish"
+    @finishFailed="onFinishFailed">
     <a-flex class="form__wrap">
       <a-form-item name="cityFrom" class="form__input">
-        <a-auto-complete
-          v-model:value="formData.cityFrom"
-          :options="optionsCity"
-          placeholder="Откуда"
-          :filter-option="filterOption"
-        />
+        <a-auto-complete v-model:value="formData.cityFrom" :options="optionsCity" placeholder="Откуда"
+          :filter-option="filterOption" />
       </a-form-item>
 
       <arrowLeft class="arr-left" />
 
       <a-form-item name="cityTo" class="form__input">
-        <a-auto-complete
-          v-model:value="formData.cityTo"
-          :options="optionsCity"
-          placeholder="Куда"
-          :filter-option="filterOption"
-        />
+        <a-auto-complete v-model:value="formData.cityTo" :options="optionsCity" placeholder="Куда"
+          :filter-option="filterOption" />
       </a-form-item>
     </a-flex>
 
     <a-flex class="form__wrap">
       <a-form-item name="dateFrom" class="form__input">
-        <a-date-picker
-          v-model:value="formData.dateFrom"
-          format="DD.MM.YYYY"
-          placeholder="Туда"
-          :disabledDate="disabledDate"
-          @change="onChangeDateFrom"
-          class="form__date-input"
-        />
+        <a-date-picker v-model:value="formData.dateFrom" format="DD.MM.YYYY" placeholder="Туда"
+          :disabledDate="disabledDate" @change="onChangeDateFrom" class="form__date-input" />
       </a-form-item>
 
       <a-form-item name="dateTo" class="form__input">
-        <a-date-picker
-          ref="refDateTo"
-          v-model:value="formData.dateTo"
-          format="DD.MM.YYYY"
-          placeholder="Обратно"
-          :disabledDate="disabledDateTo"
-          class="form__date-input"
-        />
+        <a-date-picker ref="refDateTo" v-model:value="formData.dateTo" format="DD.MM.YYYY" placeholder="Обратно"
+          :disabledDate="disabledDateTo" class="form__date-input" />
       </a-form-item>
 
       <a-form-item class="form__btn">
@@ -146,6 +121,7 @@ onMounted(() => {
     flex: 1;
     margin: 0;
   }
+
   &__date-input {
     width: 100%;
   }
@@ -166,6 +142,7 @@ onMounted(() => {
     }
   }
 }
+
 .arr-left {
   margin-right: 16px;
   min-width: 30px;

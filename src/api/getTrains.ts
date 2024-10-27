@@ -3,7 +3,7 @@ import { api } from ".";
 export const getTrains = (startPoint: string, endPoint: string, startDate: string, endDate: string) => {
   return new Promise((resolve, reject) => {
     api
-      .get(`trains`, {
+      .get(`trains/`, {
         params: {
           booking_available: true,
           start_point: startPoint,

@@ -12,7 +12,7 @@ interface AutoReserveType {
 
 export const autoReserve = async (data: AutoReserveType) => {
   try {
-    await api.post("auto-bookings", data);
+    await api.post("auto-bookings/", data);
     return true;
   } catch (error) {
     console.log(error);
