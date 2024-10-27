@@ -1,4 +1,4 @@
-export const routes = [
+export const routes: any[] = [
   {
     path: "/",
     name: "main",
@@ -29,5 +29,15 @@ export const routes = [
     path: "/add_pessanger",
     name: "add_pessanger",
     component: () => import("@/pages/AddPessanger.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/pages/LoginPage.vue"),
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () => import("@/pages/RegisterPage.vue"),
   },
 ];

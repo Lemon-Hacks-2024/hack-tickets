@@ -20,7 +20,7 @@ img {
 
 .link {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: var(--secondary-color) !important;
   position: relative;
 
   &::after {
@@ -84,4 +84,12 @@ img {
 .title * {
   font-family: "Jura";
   font-weight: 600;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
 }

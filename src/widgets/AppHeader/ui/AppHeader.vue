@@ -14,15 +14,20 @@ import AppBtn from "@/shared/ui/AppBtn.vue";
         </router-link>
         <div class="header__btns">
           <a-divider type="vertical" class="divider" />
-          <AppBtn class="text">
-            <glasses />
-          </AppBtn>
+          <a-tooltip>
+            <template #title>Режим просмотра для слабовидящих</template>
+            <AppBtn class="text">
+              <glasses />
+            </AppBtn>
+          </a-tooltip>
 
           <a-divider type="vertical" class="divider" />
-          <AppBtn class="text white">
-            Вход
-            <exit />
-          </AppBtn>
+          <router-link to="/login">
+            <AppBtn class="text white">
+              Вход
+              <exit />
+            </AppBtn>
+          </router-link>
         </div>
       </div>
     </div>
