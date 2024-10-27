@@ -4,12 +4,21 @@ import CompartmentScheme from "@/entities/WagonsTemplate/ui/CompartmentScheme.vu
 import { testData } from "../model/testData";
 import { useBookingStore } from "@/store/bookingStore";
 import { onMounted, ref } from "vue";
+// import { useRoute } from "vue-router";
+
+// import { getWagons } from "@/api/getWagons";
+
+// const route = useRoute();
 
 const bookingStore = useBookingStore();
 
 const placesData = ref();
 onMounted(() => {
   placesData.value = [...testData];
+
+  // getWagons(+route.params.trainId).then((res) => {
+  //   console.log(res);
+  // });
 });
 </script>
 
