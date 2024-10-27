@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import AppHeader from "@/widgets/AppHeader";
 import { getProfile } from "@/api/getProfile";
+import { useUserStore } from "@/store/userStore";
 
 import ruRU from "ant-design-vue/es/locale/ru_RU";
 import dayjs from "dayjs";
 import "dayjs/locale/ru";
 import { onMounted } from "vue";
 dayjs.locale("ru");
+
+const { userData } = useUserStore();
 
 const theme = {
   token: {
@@ -17,8 +20,11 @@ const theme = {
 };
 
 onMounted(() => {
-  getProfile().then((res) => {
+  getProfile().then((res: any) => {
     console.log(res);
+    userData.first_name = res.first_name;
+    userData.last_name = res.last_name;
+    userData.email = res.email;
   });
 });
 </script>
