@@ -19,6 +19,6 @@ export const register = async (data: RegisterType) => {
     return true;
   } catch (error) {
     console.log(error);
-    return error;
+    return false;
   }
 };

@@ -3,6 +3,10 @@ import glasses from "@/shared/icons/glasses.vue";
 import exit from "@/shared/icons/exit.vue";
 
 import AppBtn from "@/shared/ui/AppBtn.vue";
+import { useUserStore } from "@/store/userStore";
+import { UserOutlined } from "@ant-design/icons-vue";
+
+const { isAuth } = useUserStore();
 </script>
 
 <template>
@@ -22,10 +26,16 @@ import AppBtn from "@/shared/ui/AppBtn.vue";
           </a-tooltip>
 
           <a-divider type="vertical" class="divider" />
-          <router-link to="/login">
+          <router-link v-if="!isAuth()" to="/login">
             <AppBtn class="text white">
               Вход
               <exit />
+            </AppBtn>
+          </router-link>
+          <router-link v-else to="/profile">
+            <AppBtn class="text white">
+              Профиль
+              <UserOutlined />
             </AppBtn>
           </router-link>
         </div>

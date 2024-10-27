@@ -1,10 +1,15 @@
 <script lang="ts" setup>
 import AuthLayout from "@/shared/layouts/AuthLayout.vue";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import AppBtn from "@/shared/ui/AppBtn.vue";
 import type { Rule } from "ant-design-vue/es/form";
-
+import { message } from "ant-design-vue";
+import { useRouter } from "vue-router";
 import { register } from "@/api/register";
+import { useUserStore } from "@/store/userStore";
+
+const router = useRouter();
+const { userData } = useUserStore();
 
 const rules: Record<string, Rule[]> = {
   first_name: [
@@ -37,13 +42,19 @@ const formData = reactive<RegisterType>({
   password: "",
 });
 
-const sendForm = () => {
+const sendForm = async () => {
   console.log(formData);
 
   const res = await register(formData);
   if (res) {
-    message();
+    message.success("Вы успешно зарегестрировались");
+    router.push("/");
+
+    userData.first_name = formData.first_name;
+    userData.last_name = formData.last_name;
+    userData.email = formData.email;
   } else {
+    message.error("Возникла ошибка");
   }
 };
 </script>
