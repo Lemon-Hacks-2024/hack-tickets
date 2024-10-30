@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import AuthLayout from "@/shared/layouts/AuthLayout.vue";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import AppBtn from "@/shared/ui/AppBtn.vue";
 import type { Rule } from "ant-design-vue/es/form";
 
