@@ -7,7 +7,7 @@ export const useUserStore = defineStore("user", () => {
     first_name: "",
     last_name: "",
     email: "",
-    isLogin: true,
+    isLogin: false,
   });
 
   const isAuth = () => {

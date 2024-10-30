@@ -16,15 +16,9 @@ interface FormState {
 }
 const formState: UnwrapRef<FormState> = reactive({
   layout: "vertical",
-  firstName: "",
-  lastName: "",
-  mail: "",
-});
-
-onMounted(() => {
-  formState.firstName = userData.first_name;
-  formState.lastName = userData.last_name;
-  formState.mail = userData.email;
+  firstName: userData.first_name ?? "",
+  lastName: userData.last_name ?? "",
+  mail: userData.email ?? "",
 });
 </script>
 

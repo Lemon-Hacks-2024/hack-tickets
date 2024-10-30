@@ -25,6 +25,7 @@ onMounted(() => {
     userData.first_name = res.first_name;
     userData.last_name = res.last_name;
     userData.email = res.email;
+    userData.isLogin = true;
   });
 });
 </script>
